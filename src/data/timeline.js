@@ -36,12 +36,13 @@ export const timelineEvents = [
     media: [
       { type: 'image', url: 'midia/02.1_prototipos.webp', alt: '02.1_prototipos' },
       { type: 'image', url: 'midia/02.2_prototipos.webp', alt: '02.2_prototipos' },
-      { type: 'image', url: 'midia/02.3_prototipos.webp', alt: '02.3_prototipos' }
+      { type: 'image', url: 'midia/02.3_prototipos.webp', alt: '02.3_prototipos' },
+      { type: 'video', url: 'https://spsenacbr-my.sharepoint.com/:v:/g/personal/conrado_sasaud_sp_senac_br/IQCPHPUwvt2HR4_RnhFgfZ59AWW_xQATjw43Qj_RPeXSW0Y', alt: '02.4_prototipos.jpg.mp4.mp4' }
     ],
     timestamp: 202402
   },
   {
-    id: 'turma3-2',
+    id: 'turma3-2-marco',
     containerTitle: 'Turma de jogos 3 (2024-2025)',
     title: 'Apresentação na SCXP (São Carlos Experience)',
     date: 'Março de 2024',
@@ -51,6 +52,30 @@ export const timelineEvents = [
       { type: 'image', url: 'midia/03.2_ccxp_prototipos.jpg.mp4.webp', alt: '03.2_CSXP' }
     ],
     timestamp: 202403
+  },
+  {
+    id: 'turma3-entrega',
+    containerTitle: 'Turma de jogos 3 (2024-2025)',
+    title: 'Entrega dos jogos analógicos finalizados',
+    date: 'Abril de 2024',
+    description: 'Com o término da prototipação vários playtests, os alunos entregam e apresentam seus jogos no Senac São Carlos para o público testar',
+    media: [
+      { type: 'video', url: 'https://spsenacbr-my.sharepoint.com/personal/conrado_sasaud_sp_senac_br/_layouts/15/embed.aspx?UniqueId=e178d5c2-6b95-4dd4-b5d9-c0164c75a021&embed=%7B%22ust%22%3Atrue%2C%22hv%22%3A%22CopyEmbedCode%22%7D&referrer=StreamWebApp&referrerScenario=EmbedDialog.Create', alt: '03.1_apresentacao_prototipos.jpg.mp4' }
+    ],
+    timestamp: 202404
+  },
+  {
+    id: 'turma3-2-maio',
+    containerTitle: 'Turma de jogos 3 (2024-2025)',
+    title: 'Apresentação na SCXP (São Carlos Experience)',
+    date: 'Maio de 2024',
+    description: 'Alunos apresentarão seus protótipos de jogos para o público em geral na São Carlos Experience',
+    media: [
+      { type: 'image', url: 'midia/03.1_ccxp_prototipos.jpg.mp4.webp', alt: '03.1_CSXP' },
+      { type: 'image', url: 'midia/03.2_ccxp_prototipos.jpg.mp4.webp', alt: '03.2_CSXP' },
+      { type: 'video', url: 'https://spsenacbr-my.sharepoint.com/personal/conrado_sasaud_sp_senac_br/_layouts/15/embed.aspx?UniqueId=1a0a78ee-e275-4c67-ab03-b9c572723ed4&embed=%7B%22ust%22%3Atrue%2C%22hv%22%3A%22CopyEmbedCode%22%7D&referrer=StreamWebApp&referrerScenario=EmbedDialog.Create', alt: '03_ccpx.mp4' }
+    ],
+    timestamp: 202405
   },
   {
     id: 'turma3-3',

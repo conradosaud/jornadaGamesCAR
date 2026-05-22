@@ -1,7 +1,8 @@
-import { X } from 'lucide-react';
-import { useEffect } from 'react';
+import { X, Play } from 'lucide-react';
+import { useEffect, useState } from 'react';
 
 export default function MediaModal({ event, initialMediaIndex, onClose }) {
+  const [activeIndex, setActiveIndex] = useState(initialMediaIndex);
   
   // Impede scroll do body enquanto modal está aberto
   useEffect(() => {
@@ -11,7 +12,7 @@ export default function MediaModal({ event, initialMediaIndex, onClose }) {
     };
   }, []);
 
-  const media = event.media[initialMediaIndex];
+  const media = event.media[activeIndex];
 
   return (
     <div className="fixed inset-0 z-[100] flex items-center justify-center bg-black/90 p-4 sm:p-6 backdrop-blur-sm animate-in fade-in duration-200">
@@ -25,11 +26,22 @@ export default function MediaModal({ event, initialMediaIndex, onClose }) {
       <div className="w-full max-w-6xl max-h-[90vh] flex flex-col md:flex-row bg-surface rounded-xl overflow-hidden shadow-2xl">
         
         {/* Mídia Expandida (Esquerda no Desktop, Cima no Mobile) */}
-        <div className="w-full md:w-2/3 h-[40vh] md:h-[80vh] bg-black flex items-center justify-center">
+        <div className="w-full md:w-2/3 h-[40vh] md:h-[80vh] bg-black flex items-center justify-center relative">
            {media.type === 'image' ? (
-             <img src={media.url} alt={media.alt} className="max-w-full max-h-full object-contain" />
+             <img 
+               src={media.url} 
+               alt={media.alt} 
+               className="max-w-full max-h-full object-contain" 
+             />
            ) : (
-             <div className="text-white">Vídeo Placeholder</div>
+             <iframe 
+               src={media.url} 
+               title={media.alt || 'Video'} 
+               className="w-full h-full" 
+               frameBorder="0" 
+               scrolling="no" 
+               allowFullScreen 
+             />
            )}
         </div>
 
@@ -45,19 +57,38 @@ export default function MediaModal({ event, initialMediaIndex, onClose }) {
             {event.description}
           </p>
           
-          <div className="mt-auto">
-            <span className="text-xs text-text-muted uppercase tracking-wider font-bold">
-              Galeria do Evento
-            </span>
-            <div className="flex gap-2 mt-3 overflow-x-auto pb-2">
-               {/* Poderiamos adicionar miniaturas clicáveis das outras mídias do mesmo evento aqui */}
-               {event.media.map((item, idx) => (
-                 <div key={idx} className={`w-16 h-16 shrink-0 rounded border-2 ${idx === initialMediaIndex ? 'border-brand-primary opacity-100' : 'border-transparent opacity-50'}`}>
-                    <img src={item.url} className="w-full h-full object-cover rounded-sm" alt="miniatura" />
-                 </div>
-               ))}
+          {/* Se houver mais de uma mídia, exibe a galeria com miniaturas clicáveis */}
+          {event.media.length > 1 && (
+            <div className="mt-auto pt-4 border-t border-border">
+              <span className="text-xs text-text-muted uppercase tracking-wider font-bold">
+                Galeria do Evento
+              </span>
+              <div className="flex gap-2 mt-3 overflow-x-auto pb-2">
+                 {event.media.map((item, idx) => (
+                   <button 
+                     key={idx} 
+                     onClick={() => setActiveIndex(idx)}
+                     className={`w-16 h-16 shrink-0 rounded border-2 overflow-hidden flex items-center justify-center bg-black transition-all ${
+                       idx === activeIndex ? 'border-brand-primary opacity-100 scale-105' : 'border-transparent opacity-50 hover:opacity-80'
+                     }`}
+                   >
+                      {item.type === 'image' ? (
+                        <img 
+                          src={item.url} 
+                          className="w-full h-full object-cover" 
+                          alt="miniatura" 
+                        />
+                      ) : (
+                        <div className="flex flex-col items-center justify-center text-white">
+                          <Play className="w-5 h-5 text-brand-primary fill-current" />
+                          <span className="text-[10px] uppercase font-bold mt-0.5">Vídeo</span>
+                        </div>
+                      )}
+                   </button>
+                 ))}
+              </div>
             </div>
-          </div>
+          )}
         </div>
 
       </div>

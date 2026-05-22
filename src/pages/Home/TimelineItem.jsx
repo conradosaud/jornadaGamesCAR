@@ -1,6 +1,38 @@
 import { motion } from 'framer-motion';
+import { Play } from 'lucide-react';
 
 export default function TimelineItem({ event, isLeft, onMediaClick }) {
+  const renderMediaItem = (item) => {
+    if (item.type === 'image') {
+      return (
+        <img 
+          src={item.url} 
+          alt={item.alt} 
+          loading="lazy" 
+          className="w-full h-full object-cover transform hover:scale-105 transition-transform duration-500" 
+        />
+      );
+    } else {
+      return (
+        <div className="relative w-full h-full bg-black">
+          <iframe 
+            src={item.url} 
+            title={item.alt || 'Video'} 
+            className="w-full h-full absolute inset-0 pointer-events-none" 
+            frameBorder="0" 
+            scrolling="no" 
+            allowFullScreen 
+          />
+          <div className="absolute inset-0 bg-black/30 hover:bg-black/10 transition-colors flex items-center justify-center group/play">
+            <div className="bg-brand-primary text-white p-3 rounded-full shadow-lg transform group-hover/play:scale-110 transition-transform duration-300 flex items-center justify-center">
+              <Play className="w-6 h-6 fill-current text-white translate-x-[1px]" />
+            </div>
+          </div>
+        </div>
+      );
+    }
+  };
+
   return (
     <div className={`relative flex items-center justify-between md:justify-normal group is-active w-full my-12 ${isLeft ? 'md:flex-row-reverse' : 'md:flex-row'}`}>
       
@@ -26,19 +58,14 @@ export default function TimelineItem({ event, isLeft, onMediaClick }) {
           {event.description}
         </p>
 
-        {/* Galeria de Mídias (Imagens Protagonistas) */}
+        {/* Galeria de Mídias (Imagens/Vídeos Protagonistas) */}
         <div className={`mt-4 w-full max-w-lg ${isLeft ? 'md:ml-auto md:mr-0' : 'md:mr-auto md:ml-0'} ml-0`}>
           {event.media.length === 1 && (
             <div 
               className="relative rounded-xl overflow-hidden cursor-pointer hover:opacity-95 transition-all duration-300 ring-2 ring-transparent hover:ring-brand-primary shadow-lg aspect-[16/10] w-full"
               onClick={() => onMediaClick(event, 0)}
             >
-              <img 
-                src={event.media[0].url} 
-                alt={event.media[0].alt} 
-                loading="lazy" 
-                className="w-full h-full object-cover transform hover:scale-105 transition-transform duration-500" 
-              />
+              {renderMediaItem(event.media[0])}
             </div>
           )}
 
@@ -50,12 +77,7 @@ export default function TimelineItem({ event, isLeft, onMediaClick }) {
                   className="relative rounded-xl overflow-hidden cursor-pointer hover:opacity-95 transition-all duration-300 ring-2 ring-transparent hover:ring-brand-primary shadow-lg aspect-[4/3] w-full"
                   onClick={() => onMediaClick(event, index)}
                 >
-                  <img 
-                    src={item.url} 
-                    alt={item.alt} 
-                    loading="lazy" 
-                    className="w-full h-full object-cover transform hover:scale-105 transition-transform duration-500" 
-                  />
+                  {renderMediaItem(item)}
                 </div>
               ))}
             </div>
@@ -67,12 +89,7 @@ export default function TimelineItem({ event, isLeft, onMediaClick }) {
                 className="col-span-6 relative rounded-xl overflow-hidden cursor-pointer hover:opacity-95 transition-all duration-300 ring-2 ring-transparent hover:ring-brand-primary shadow-lg aspect-[16/10] w-full"
                 onClick={() => onMediaClick(event, 0)}
               >
-                <img 
-                  src={event.media[0].url} 
-                  alt={event.media[0].alt} 
-                  loading="lazy" 
-                  className="w-full h-full object-cover transform hover:scale-105 transition-transform duration-500" 
-                />
+                {renderMediaItem(event.media[0])}
               </div>
               {event.media.slice(1).map((item, index) => {
                 const remainingCount = event.media.length - 1;
@@ -83,12 +100,7 @@ export default function TimelineItem({ event, isLeft, onMediaClick }) {
                     className={`${colSpan} relative rounded-xl overflow-hidden cursor-pointer hover:opacity-95 transition-all duration-300 ring-2 ring-transparent hover:ring-brand-primary shadow-lg aspect-[4/3] w-full`}
                     onClick={() => onMediaClick(event, index + 1)}
                   >
-                    <img 
-                      src={item.url} 
-                      alt={item.alt} 
-                      loading="lazy" 
-                      className="w-full h-full object-cover transform hover:scale-105 transition-transform duration-500" 
-                    />
+                    {renderMediaItem(item)}
                   </div>
                 );
               })}

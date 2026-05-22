@@ -26,7 +26,7 @@ As mídias devem ser responsivas, ou seja, devem se adaptar a diferentes tamanho
 - **Imagens**: estão em public/midia em formato diversos
 -- Inicialmente deve começar com src="#" para que eu possa substituir depois
 -- Use lazy load
-- **Vídeos**: estão em public/midia em formato de texto contendo o link de hospedagem do Youtube. Deixe o Embed do Youtube preparado com src="#" para eu substituir depois.
+- **Vídeos**: estão em public/midia em formato de texto contendo o link de hospedagem do sharepoint do onedrive. Eu devo passar o link pra você embedar. Talvez o link venha com divs e outras coisas, mas você deve se concentrar apenas no conteúdo do iframe.
 
 ### Interação com as mídias
 Ao clicar em uma mídia, seja imagem ou vídeo, a mídia deve ser exibida de forma parecida com o Instagram, sendo:
@@ -61,11 +61,23 @@ O conteúdo da linha do tempo é separado em:
         - Data: fevereiro de 2024
         - Descrição: Alunos criam seus primeiros jogos analógicos e testam com protótipos após as aulas teóricas e práticas
         - Mídia: 02.1_prototipos, 02.2_prototipos, 02.3_prototipos
+        - Vídeo: <iframe src="https://spsenacbr-my.sharepoint.com/personal/conrado_sasaud_sp_senac_br/_layouts/15/embed.aspx?UniqueId=30f51c8f-ddbe-4787-8fd1-9e11607d9e7d&embed=%7B%22hvm%22%3Atrue%2C%22ust%22%3Atrue%7D&referrer=StreamWebApp&referrerScenario=EmbedDialog.Create" width="640" height="360" frameborder="0" scrolling="no" allowfullscreen title="02.4_prototipos.jpg.mp4.mp4"></iframe>
 
     - Título: Apresentação na CSXP (São Carlos Experience)
         - Data: março de 2024
         - Descrição: Alunos apresentarão seus protótipos de jogos para o público em geral na São Carlos Experience
         - Mídia: 03.1_CSXP, 03.2_CSXP
+
+    - Título: Entrega dos jogos analógicos finalizados
+        - Data: abril de 2024
+        - Descrição: Com o término da prototipação vários playtests, os alunos entregam e apresentam seus jogos no Senac São Carlos para o público testar
+        - Mídia: <iframe src="https://spsenacbr-my.sharepoint.com/personal/conrado_sasaud_sp_senac_br/_layouts/15/embed.aspx?UniqueId=e178d5c2-6b95-4dd4-b5d9-c0164c75a021&embed=%7B%22ust%22%3Atrue%2C%22hv%22%3A%22CopyEmbedCode%22%7D&referrer=StreamWebApp&referrerScenario=EmbedDialog.Create" width="640" height="360" frameborder="0" scrolling="no" allowfullscreen title="03.1_apresentacao_prototipos.jpg.mp4"></iframe>
+
+    - Título: Apresentação na CSXP (São Carlos Experience)
+        - Data: maio de 2024
+        - Descrição: Alunos apresentarão seus protótipos de jogos para o público em geral na São Carlos Experience
+        - Mídia: 03.1_CSXP, 03.2_CSXP
+        - Vídeo: <iframe src="https://spsenacbr-my.sharepoint.com/personal/conrado_sasaud_sp_senac_br/_layouts/15/embed.aspx?UniqueId=1a0a78ee-e275-4c67-ab03-b9c572723ed4&embed=%7B%22ust%22%3Atrue%2C%22hv%22%3A%22CopyEmbedCode%22%7D&referrer=StreamWebApp&referrerScenario=EmbedDialog.Create" width="640" height="360" frameborder="0" scrolling="no" allowfullscreen title="03_ccpx.mp4"></iframe>
 
     - Título: Visita técnica ao DOFF (Diversão Offline)
         - Data: junho de 2024
