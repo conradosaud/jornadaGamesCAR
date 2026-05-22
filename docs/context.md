@@ -6,7 +6,7 @@ O projeto deve apresentar uma linha do tempo contando a história e também perm
 ## Tecnologias
 - HTML: padrão
 - CSS: usar Tailwind na versão mais recente
-- JavaScript: usar React na versão mais recente
+- JavaScript: usar React na versão mais recente (React puro sem Next.js ou similares)
 - Servidor: não há servidor, todo o conteúdo deve ser buildado em HTML estático para ser hospedado em um servidor simples e tradicional que roda PhP (embora não seja usado PhP)
 
 ### Código
@@ -18,13 +18,19 @@ O projeto deve apresentar uma linha do tempo contando a história e também perm
 ### Modo de trabalho
 Você e eu devemos trabalhar em conjunto. Crie sempre planos de ação antes de modificar ou implementar algo no projeto. 
 
+### Estilização
+Crie um arquivo CSS global na raiz do projeto para definir cores, fontes, e outros estilos globais sem que eu precise mexer no CSS diretamente.
+
 No plano de implementação:
 - Confirme detalhes que eu possa ter esquecido na hora de pedir o plano
 - Faça sempre perguntas se você tiver dúvidas
 - Faça sempre sugestões de melhorias na implementação
 
 ## Páginas
+
+O conteúdo de cada página está nos arquivos dentro do diretório "./pages". Cada arquivo está nomeado de acordo com o nome da página que ele representa.
+
 Este site deve ter três páginas:
-- Página inicial (timeline): a página inicial deve ser também a página da timeline que mostra a linha do tempo do curso, onde mostra sua jornada de forma organizada.
-- Jogos dos Alunos: uma página onde deve mostrar todos nossos alunos e os links para seus jogos
-- Jogos do Professores: uma página identica ao dos alunos, porém deve ter uma estrutura visual diferente, onde deve ter o portfólio dos professores
+- Página inicial (timeline) (./pages/home.md): a página inicial deve ser também a página da timeline que mostra a linha do tempo do curso, onde mostra sua jornada de forma organizada.
+- Jogos dos Alunos (./pages/alunos.md): uma página onde deve mostrar todos nossos alunos e os links para seus jogos
+- Jogos do Professores (./pages/professores.md): uma página identica ao dos alunos, porém deve ter uma estrutura visual diferente, onde deve ter o portfólio dos professores
