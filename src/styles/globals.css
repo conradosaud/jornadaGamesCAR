@@ -1,5 +1,6 @@
 /* Importação do Tailwind CSS v4 */
 @import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
 
 /* ==========================================================================
    Tokens de design globais — edite aqui para mudar cores, fontes e espaçamentos
@@ -12,16 +13,16 @@
   --color-brand-secondary: #48C9B0;
   --color-brand-accent:    #FF6584;
 
-  /* --- Escala de cinzas --- */
-  --color-surface:         #0F0F1A;
-  --color-surface-raised:  #1A1A2E;
-  --color-surface-overlay: #16213E;
-  --color-border:          #2A2A4A;
+  /* --- Escala de cinzas dinâmicos --- */
+  --color-surface:         var(--surface);
+  --color-surface-raised:  var(--surface-raised);
+  --color-surface-overlay: var(--surface-overlay);
+  --color-border:          var(--border);
 
-  /* --- Texto --- */
-  --color-text-primary:    #F0F0FF;
-  --color-text-secondary:  #A0A0C0;
-  --color-text-muted:      #606080;
+  /* --- Texto dinâmico --- */
+  --color-text-primary:    var(--text-primary);
+  --color-text-secondary:  var(--text-secondary);
+  --color-text-muted:      var(--text-muted);
 
   /* --- Tipografia --- */
   --font-sans: 'Inter', system-ui, sans-serif;
@@ -39,6 +40,30 @@
    ========================================================================== */
 
 @layer base {
+  :root {
+    /* Light theme */
+    --surface: #F8F9FA;
+    --surface-raised: #FFFFFF;
+    --surface-overlay: #E9ECEF;
+    --border: #DEE2E6;
+    
+    --text-primary: #121212;
+    --text-secondary: #495057;
+    --text-muted: #868E96;
+  }
+
+  .dark {
+    /* Dark theme */
+    --surface: #0F0F1A;
+    --surface-raised: #1A1A2E;
+    --surface-overlay: #16213E;
+    --border: #2A2A4A;
+    
+    --text-primary: #F0F0FF;
+    --text-secondary: #A0A0C0;
+    --text-muted: #606080;
+  }
+
   html {
     scroll-behavior: smooth;
   }
@@ -48,9 +73,9 @@
     color: var(--color-text-primary);
     font-family: var(--font-sans);
     -webkit-font-smoothing: antialiased;
+    transition: background-color 0.3s ease, color 0.3s ease;
   }
 
-  /* Remove estilos padrão de listas quando usadas em componentes de navegação */
   nav ul,
   nav ol {
     list-style: none;
